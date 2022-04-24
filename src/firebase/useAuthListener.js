@@ -8,15 +8,9 @@ export const useAuthListener = () => {
   useEffect(() => {
     const listener = auth.onAuthStateChanged((authUser) => {
       if (authUser) {
-        onSnapshot(doc(db, "users", authUser.uid), (doc) => {
-          const passedData = {
-            name: doc.data().name,
-            status: doc.data().status,
-            id: doc.data().id,
-          };
-
-          setUser(passedData);
-        });
+        onSnapshot(doc(db, "users", authUser.uid), (doc) =>
+          setUser(doc.data().id)
+        );
       } else setUser(null);
     });
 

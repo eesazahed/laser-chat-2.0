@@ -8,7 +8,7 @@ export default function RequestName(props) {
 
   const setUserStatus = async () => {
     if (status.length >= 3 && status.length <= 15) {
-      await updateDoc(doc(db, "users", props.user.id), {
+      await updateDoc(doc(db, "users", props.user), {
         status: status,
       });
       setStatus("");

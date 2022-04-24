@@ -14,7 +14,7 @@ export default function Homepage(props) {
 
   useEffect(() => {
     const ifNewUser = async () => {
-      const docSnap = await getDoc(doc(db, "users", props.user.id));
+      const docSnap = await getDoc(doc(db, "users", props.user));
 
       if (docSnap.data().name === "New User") {
         const { value: name } = await Swal.fire({
@@ -32,14 +32,14 @@ export default function Homepage(props) {
           },
         });
         if (name) {
-          await updateDoc(doc(db, "users", props.user.id), {
+          await updateDoc(doc(db, "users", props.user), {
             name: name,
           });
           addDoc(collection(db, "messages"), {
             content: `${name} has joined the chat.`,
             timestamp: new Date().getTime(),
             sender: name,
-            senderID: props.user.id,
+            senderID: props.user,
           });
         }
       }

@@ -8,7 +8,7 @@ export default function RequestName(props) {
 
   const setUsername = async () => {
     if (name.length >= 3 && name.length <= 15) {
-      await updateDoc(doc(db, "users", props.user.id), {
+      await updateDoc(doc(db, "users", props.user), {
         name: name,
       });
       setName("");

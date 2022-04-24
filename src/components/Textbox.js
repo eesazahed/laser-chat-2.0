@@ -6,7 +6,7 @@ export default function Textbox(props) {
   const [message, setMessage] = useState("");
 
   const sendMessage = async () => {
-    const docSnap = await getDoc(doc(db, "users", props.user.id));
+    const docSnap = await getDoc(doc(db, "users", props.user));
     if (message.length > 0) {
       await addDoc(collection(db, "messages"), {
         content: message,

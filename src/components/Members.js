@@ -12,7 +12,7 @@ export default function Members(props) {
           allUsers.length,
           doc.data().name,
           doc.data().status,
-          doc.data().id === props.user.id,
+          doc.data().id === props.user,
         ]);
       });
       setUsers(allUsers);

@@ -17,7 +17,7 @@ export default function Messages(props) {
           sender: doc.data().sender,
           content: doc.data().content,
           timestamp: doc.data().timestamp,
-          sentByMe: doc.data().senderID === props.user.id,
+          sentByMe: doc.data().senderID === props.user,
         };
         allMessages.push(addedMessage);
       });
