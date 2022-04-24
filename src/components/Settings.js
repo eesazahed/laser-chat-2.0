@@ -9,6 +9,7 @@ export default function Settings(props) {
       <br />
       <RequestName user={props.user} />
       <RequestStatus user={props.user} />
+      <p>Set theme</p>
       <SetTheme />
       <br />
       <button onClick={signUserOut}>Sign Out</button>
