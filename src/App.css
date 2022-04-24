@@ -1,38 +1,134 @@
-.App {
-  text-align: center;
+body {
+  font-family: sans-serif;
+  height: 100vh;
+  padding: 0%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.msg {
+  display: flex;
+  padding: 1%;
+  margin-top: -5%;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.msg-left {
+  margin: 1%;
+  padding: 1%;
+  width: 70%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.msg-info {
+  margin: 3%;
+}
+
+.msg span {
+  color: white;
+  margin: 1%;
+  padding: 2%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.homepage {
+  display: flex;
+  padding: 0%;
+  margin: 0%;
+}
+
+.sentByYou span {
+  background-color: deepskyblue;
+}
+
+.sentByOther span {
+  background-color: limegreen;
+}
+
+aside,
+main {
+  padding: 1%;
+  margin: 0%;
+  height: 100vh;
+}
+
+aside {
+  width: 25%;
+}
+
+main {
+  width: 70vw;
+}
+
+li,
+ul {
+  list-style-type: none;
+  margin: 0%;
+  padding: 0%;
+}
+
+li {
+  margin-bottom: 20px;
+}
+
+.messages {
+  font-size: smaller;
+  height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column-reverse;
+  scroll-behavior: smooth;
+}
+
+.members {
+  height: 90vh;
+  overflow-y: auto;
+}
+
+.textbox {
+  width: 100%;
+  display: flex;
+}
+
+.textbox input {
+  width: 100%;
+  padding: 1%;
+  border: none;
+  border-top: 1px solid;
+}
+
+.registeration {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+}
+.settings input,
+.settings p,
+.registeration input,
+.registeration p {
+  width: 50%;
+  margin: 1%;
+  padding: 1%;
 }
 
-.App-link {
-  color: #61dafb;
+.settings button,
+.registeration button {
+  margin: 1%;
+  padding: 1%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.settheme {
+  display: flex;
+  flex-direction: column;
+}
+
+.you {
+  color: green;
+}
+
+button:hover {
+  opacity: 0.8;
+  transition: 0.25s;
 }
