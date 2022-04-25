@@ -9,6 +9,7 @@ export default function Settings() {
       <br />
       <RequestName />
       <RequestStatus />
+      <br />
       <SetTheme />
       <br />
       <button onClick={signUserOut}>Sign Out</button>

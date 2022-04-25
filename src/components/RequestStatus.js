@@ -21,17 +21,21 @@ export default function RequestName() {
   };
 
   return (
-    <div>
+    <>
       <p>Status:</p>
-      <input
-        type="text"
-        value={status}
-        onChange={(e) => setStatus(e.target.value)}
-        placeholder="Status"
-      />
-      <button onClick={() => setUserStatus()}>Done</button>
-      <br />
-      <p className="error">{error}</p>
-    </div>
+      <div className="request">
+        <input
+          type="text"
+          value={status}
+          onChange={(e) => setStatus(e.target.value)}
+          placeholder="Status"
+        />
+        <button className="set" onClick={() => setUserStatus()}>
+          Done
+        </button>
+        <br />
+        <p className="error">{error}</p>
+      </div>
+    </>
   );
 }

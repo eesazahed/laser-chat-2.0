@@ -9,15 +9,11 @@ const lightmode = () => {
   $("input").css({
     border: "none",
     background: "white",
-    padding: "3%",
-    margin: "2%",
   });
   $("button").css({
     border: "none",
     background: "white",
     color: "black",
-    padding: "3%",
-    margin: "2%",
   });
 
   $(".sentByYou span").css({ background: "deepskyblue" });
@@ -35,15 +31,11 @@ const darkmode = () => {
   $("input").css({
     border: "none",
     background: "#5A5A5A",
-    padding: "3%",
-    margin: "2%",
   });
   $("button").css({
     border: "none",
     background: "#5A5A5A",
     color: "white",
-    padding: "3%",
-    margin: "2%",
   });
 
   $(".sentByYou span").css({ background: "blue" });
@@ -61,15 +53,11 @@ const terminal = () => {
   $("input").css({
     border: "none",
     background: "#171717",
-    padding: "3%",
-    margin: "2%",
   });
   $("button").css({
     border: "none",
     background: "#171717",
     color: "white",
-    padding: "3%",
-    margin: "2%",
   });
 
   $(".sentByYou span, .sentByOther span").css({ background: "black" });
@@ -84,20 +72,16 @@ const oldweb = () => {
   });
   $("body, input, button").css({ color: "white" });
   $("body, input, button").css({ fontFamily: "serif" });
-  $(".messages").css({ background: "transparent" });
+  $(".messages").css({ background: "black", opacity: 0.9 });
 
   $("input").css({
     border: "none",
     background: "#323232",
-    padding: "3%",
-    margin: "2%",
   });
   $("button").css({
     border: "none",
     background: "#323232",
     color: "white",
-    padding: "3%",
-    margin: "2%",
   });
 
   $(".sentByYou span").css({ background: "blue" });
@@ -115,15 +99,11 @@ const colourful = () => {
   $("input").css({
     border: "none",
     background: "yellow",
-    padding: "3%",
-    margin: "2%",
   });
   $("button").css({
     border: "none",
     background: "orange",
     color: "black",
-    padding: "3%",
-    margin: "2%",
   });
 
   $(".sentByYou span").css({ background: "deepskyblue" });
@@ -138,21 +118,17 @@ const city = () => {
   });
   $("body, input, button").css({ color: "white" });
   $("body, input, button").css({ fontFamily: "sans-serif" });
-  $(".messages").css({ background: "transparent" });
+  $(".messages").css({ background: "white" });
 
   $("input").css({
     border: "none",
     background: "white",
     color: "black",
-    padding: "3%",
-    margin: "2%",
   });
   $("button").css({
     border: "none",
     background: "white",
     color: "black",
-    padding: "3%",
-    margin: "2%",
   });
 
   $(".sentByYou span").css({ background: "deepskyblue" });
@@ -170,15 +146,11 @@ const gradientlight = () => {
   $("input").css({
     border: "none",
     background: "white",
-    padding: "3%",
-    margin: "2%",
   });
   $("button").css({
     border: "none",
     background: "white",
     color: "black",
-    padding: "3%",
-    margin: "2%",
   });
 
   $(".sentByYou span, .sentByOther span").css({
@@ -197,15 +169,11 @@ const gradientdark = () => {
   $("input").css({
     border: "none",
     background: "#5A5A5A",
-    padding: "3%",
-    margin: "2%",
   });
   $("button").css({
     border: "none",
     background: "#5A5A5A",
     color: "white",
-    padding: "3%",
-    margin: "2%",
   });
 
   $(".sentByYou span, .sentByOther span").css({
@@ -233,12 +201,12 @@ export default function SetTheme() {
 
 export const userTheme = async () => {
   let usersTheme = (await localStorage.getItem("theme")) || 1;
-  if (usersTheme == 1) lightmode();
-  if (usersTheme == 2) darkmode();
-  if (usersTheme == 3) terminal();
-  if (usersTheme == 4) oldweb();
-  if (usersTheme == 5) colourful();
-  if (usersTheme == 6) city();
-  if (usersTheme == 7) gradientlight();
-  if (usersTheme == 8) gradientdark();
+  if (parseInt(usersTheme) === 1) lightmode();
+  if (parseInt(usersTheme) === 2) darkmode();
+  if (parseInt(usersTheme) === 3) terminal();
+  if (parseInt(usersTheme) === 4) oldweb();
+  if (parseInt(usersTheme) === 5) colourful();
+  if (parseInt(usersTheme) === 6) city();
+  if (parseInt(usersTheme) === 7) gradientlight();
+  if (parseInt(usersTheme) === 8) gradientdark();
 };

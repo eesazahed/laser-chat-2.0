@@ -102,9 +102,9 @@ li {
 
 .textbox input {
   width: 100%;
-  padding: 1%;
-  border: none;
-  border-top: 1px solid;
+  margin: 1.5%;
+  padding: 2%;
+  border-radius: 20px;
 }
 
 .registeration {
@@ -115,8 +115,7 @@ li {
   justify-content: center;
   align-items: center;
 }
-.settings input,
-.settings p,
+
 .registeration p {
   width: 50%;
   margin: 1%;
@@ -129,15 +128,35 @@ li {
   padding: 1%;
 }
 
-.settings button,
 .registeration button {
   margin: 1%;
   padding: 1%;
 }
 
+.settings input {
+  width: 65%;
+}
+
+.set {
+  background-color: red;
+}
+
+.request {
+  display: flex;
+  justify-content: center;
+}
+.settings button,
+.settings input {
+  margin: 2%;
+  padding: 4%;
+  border-radius: 10px;
+}
+
+.settings,
 .settheme {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .you {
