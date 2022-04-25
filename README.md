@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Laser Chat 2.0
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![preview](https://user-images.githubusercontent.com/97064249/164994663-5fc11f36-eb34-432d-8739-6536e70bccb3.png)
 
-## Available Scripts
 
-In the project directory, you can run:
+This is an open chat web app that I made using Google Firebase.
 
-### `npm start`
+# Hosting a server
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+To host your own chat server, first open the terminal and type in `git clone https://github.com/EesaZahed/laser-chat.git`. Next, type `cd laser-chat` and `npm i react` in the terminal.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Next, create a Google Firebase web project at https://console.firebase.google.com/, and enable a firestore database, and also add a method for user authentication with an emailed sign-in link. Once you create your project, go to your project settings, and copy the `firebaseConfig` object, and paste it in `src/firebase/config.js`.
 
-### `npm test`
+To finally run it, type in the terminal of your project's directory `npm start`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Your chat server is online and anyone with your API keys in the firebaseConfig object can edit your database. For more information about Firebase security, please read more about this at https://firebase.google.com/docs/projects/api-keys.
 
-### `npm run build`
+For your database rules, use the following:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+  
+		match /users/{id} {
+      allow read, create, update: if isUserAuthenticated();
+    }
+    
+    match /messages/{id} {
+      allow read, create : if isUserAuthenticated();
+    }
+  
+    
+  	function isUserAuthenticated() {
+      return request.auth.uid != null; 
+    }
+  }
+```
