@@ -38,7 +38,7 @@ export default function Messages(props) {
               className={message.sentByMe ? "msg sentByYou" : "msg sentByOther"}
             >
               <div className="msg-left">
-                <div className="msg-info">{message.sender}</div>
+                <div className="msg-sender">{message.sender}</div>
                 <div className="msg-content">
                   <span>{message.content}</span>
                 </div>{" "}

@@ -20,8 +20,8 @@ const lightmode = () => {
     margin: "2%",
   });
 
-  $(".sentByYou.msg span").css({ background: "deepskyblue" });
-  $(".sentByOther.msg span").css({ background: "limegreen" });
+  $(".sentByYou span").css({ background: "deepskyblue" });
+  $(".sentByOther span").css({ background: "limegreen" });
 
   localStorage.setItem("theme", 1);
 };
@@ -46,8 +46,8 @@ const darkmode = () => {
     margin: "2%",
   });
 
-  $(".sentByYou.msg span").css({ background: "blue" });
-  $(".sentByOther.msg span").css({ background: "green" });
+  $(".sentByYou span").css({ background: "blue" });
+  $(".sentByOther span").css({ background: "green" });
 
   localStorage.setItem("theme", 2);
 };
@@ -72,8 +72,7 @@ const terminal = () => {
     margin: "2%",
   });
 
-  $(".sentByYou.msg span").css({ background: "black" });
-  $(".sentByOther.msg span").css({ background: "black" });
+  $(".sentByYou span, .sentByOther span").css({ background: "black" });
 
   localStorage.setItem("theme", 3);
 };
@@ -101,8 +100,8 @@ const oldweb = () => {
     margin: "2%",
   });
 
-  $(".sentByYou.msg span").css({ background: "blue" });
-  $(".sentByOther.msg span").css({ background: "green" });
+  $(".sentByYou span").css({ background: "blue" });
+  $(".sentByOther span").css({ background: "green" });
 
   localStorage.setItem("theme", 4);
 };
@@ -127,8 +126,8 @@ const colourful = () => {
     margin: "2%",
   });
 
-  $(".sentByYou.msg span").css({ background: "deepskyblue" });
-  $(".sentByOther.msg span").css({ background: "limegreen" });
+  $(".sentByYou span").css({ background: "deepskyblue" });
+  $(".sentByOther span").css({ background: "limegreen" });
   localStorage.setItem("theme", 5);
 };
 
@@ -156,17 +155,74 @@ const city = () => {
     margin: "2%",
   });
 
-  $(".sentByYou.msg span").css({ background: "blue" });
-  $(".sentByOther.msg span").css({ background: "green" });
+  $(".sentByYou span").css({ background: "deepskyblue" });
+  $(".sentByOther span").css({ background: "limegreen" });
 
   localStorage.setItem("theme", 6);
+};
+
+const gradientlight = () => {
+  $("body").css({ background: "whitesmoke" });
+  $("body, input, button").css({ color: "black" });
+  $("body, input, button").css({ fontFamily: "sans-serif" });
+  $(".messages").css({ background: "white" });
+
+  $("input").css({
+    border: "none",
+    background: "white",
+    padding: "3%",
+    margin: "2%",
+  });
+  $("button").css({
+    border: "none",
+    background: "white",
+    color: "black",
+    padding: "3%",
+    margin: "2%",
+  });
+
+  $(".sentByYou span, .sentByOther span").css({
+    background:
+      "linear-gradient(55deg, rgb(80, 96, 255) 0%, rgb(140, 71, 255) 40%, rgb(211, 79, 196) 81%, rgb(244, 89, 154) 100%)",
+  });
+  localStorage.setItem("theme", 7);
+};
+
+const gradientdark = () => {
+  $("body").css({ background: "#2E2E2E" });
+  $("body, input, button").css({ color: "white" });
+  $("body, input, button").css({ fontFamily: "sans-serif" });
+  $(".messages").css({ background: "#323232" });
+
+  $("input").css({
+    border: "none",
+    background: "#5A5A5A",
+    padding: "3%",
+    margin: "2%",
+  });
+  $("button").css({
+    border: "none",
+    background: "#5A5A5A",
+    color: "white",
+    padding: "3%",
+    margin: "2%",
+  });
+
+  $(".sentByYou span, .sentByOther span").css({
+    background:
+      "linear-gradient(55deg, rgb(80, 96, 255) 0%, rgb(140, 71, 255) 40%, rgb(211, 79, 196) 81%, rgb(244, 89, 154) 100%)",
+  });
+
+  localStorage.setItem("theme", 8);
 };
 
 export default function SetTheme() {
   return (
     <div className="settheme">
       <button onClick={lightmode}>Light mode</button>
+      <button onClick={gradientlight}>Light gradient</button>
       <button onClick={darkmode}>Dark mode</button>
+      <button onClick={gradientdark}>Dark gradient</button>
       <button onClick={terminal}>Terminal</button>
       <button onClick={oldweb}>90's web</button>
       <button onClick={colourful}>Colourful</button>
@@ -177,22 +233,12 @@ export default function SetTheme() {
 
 export const userTheme = async () => {
   let usersTheme = (await localStorage.getItem("theme")) || 1;
-  if (usersTheme == 1) {
-    lightmode();
-  }
-  if (usersTheme == 2) {
-    darkmode();
-  }
-  if (usersTheme == 3) {
-    terminal();
-  }
-  if (usersTheme == 4) {
-    oldweb();
-  }
-  if (usersTheme == 5) {
-    colourful();
-  }
-  if (usersTheme == 6) {
-    city();
-  }
+  if (usersTheme == 1) lightmode();
+  if (usersTheme == 2) darkmode();
+  if (usersTheme == 3) terminal();
+  if (usersTheme == 4) oldweb();
+  if (usersTheme == 5) colourful();
+  if (usersTheme == 6) city();
+  if (usersTheme == 7) gradientlight();
+  if (usersTheme == 8) gradientdark();
 };

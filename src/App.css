@@ -5,43 +5,57 @@ body {
 }
 
 .msg {
-  display: flex;
   padding: 1%;
-  margin-top: -5%;
-  align-items: center;
-}
-
-.msg-left {
-  margin: 1%;
-  padding: 1%;
-  width: 70%;
-}
-
-.msg-info {
-  margin: 3%;
 }
 
 .msg span {
   color: white;
-  margin: 1%;
-  padding: 2%;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-radius: 10px 10px 10px 0px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  padding: 10px;
+}
+
+.msg-content {
+  max-width: 30vw;
+  margin: 0.5vw;
+  margin: 1vw 0vw 1vw 0vw;
+  display: flex;
+  flex-direction: row;
+}
+
+.msg-left,
+.msg-right {
+  margin: 0vw 1vw 0vw 1vw;
+}
+
+.msg-right {
+  font-size: smaller;
+  color: grey;
+}
+
+.sentByYou {
+  margin-left: auto;
+}
+
+.sentByYou span {
+  color: white;
+  border-radius: 10px 10px 0px 10px;
+  word-break: break-all;
+}
+
+.sentByYou .msg-content {
+  flex-direction: row-reverse;
+}
+
+.sentByYou {
+  text-align: right;
 }
 
 .homepage {
   display: flex;
   padding: 0%;
   margin: 0%;
-}
-
-.sentByYou span {
-  background-color: deepskyblue;
-}
-
-.sentByOther span {
-  background-color: limegreen;
 }
 
 aside,
@@ -53,10 +67,6 @@ main {
 
 aside {
   width: 25%;
-}
-
-main {
-  width: 70vw;
 }
 
 li,
@@ -73,7 +83,8 @@ li {
 .messages {
   font-size: smaller;
   height: 90vh;
-  overflow-y: auto;
+  width: 60vw;
+  overflow: auto;
   display: flex;
   flex-direction: column-reverse;
   scroll-behavior: smooth;
@@ -81,7 +92,7 @@ li {
 
 .members {
   height: 90vh;
-  overflow-y: auto;
+  overflow: auto;
 }
 
 .textbox {

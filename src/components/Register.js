@@ -27,6 +27,11 @@ export default function Register() {
     return (
       <div className="registeration">
         <h1>Loading...</h1>
+        <img
+          src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif"
+          width="100"
+          alt="loading circle that rotates"
+        />
       </div>
     );
   } else {
