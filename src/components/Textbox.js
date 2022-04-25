@@ -2,11 +2,15 @@ import { useState } from "react";
 import { db } from "../firebase/config";
 import { collection, doc, getDoc, addDoc } from "firebase/firestore";
 
-export default function Textbox(props) {
+import { useAuthListener } from "../firebase/useAuthListener";
+
+export default function Textbox() {
+  const current = useAuthListener();
+
   const [message, setMessage] = useState("");
 
   const sendMessage = async () => {
-    const docSnap = await getDoc(doc(db, "users", props.user));
+    const docSnap = await getDoc(doc(db, "users", current.user));
     if (message.length > 0) {
       await addDoc(collection(db, "messages"), {
         content: message,

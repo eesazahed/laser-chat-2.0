@@ -1,14 +1,17 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { db } from "../firebase/config";
 import { collection, onSnapshot } from "firebase/firestore";
 import { userTheme } from "./SetTheme";
 
-export default function Messages(props) {
+import { useAuthListener } from "../firebase/useAuthListener";
+
+export default function Messages() {
+  const current = useAuthListener();
+
   const [messages, setMessages] = useState([]);
 
   userTheme();
-
-  useEffect(() => {
+  if (current.user) {
     onSnapshot(collection(db, "messages"), (querySnapshot) => {
       const allMessages = [];
       querySnapshot.forEach((doc) => {
@@ -17,7 +20,7 @@ export default function Messages(props) {
           sender: doc.data().sender,
           content: doc.data().content,
           timestamp: doc.data().timestamp,
-          sentByMe: doc.data().senderID === props.user,
+          sentByMe: doc.data().senderID === current.user,
         };
         allMessages.push(addedMessage);
       });
@@ -26,7 +29,7 @@ export default function Messages(props) {
       );
       setMessages(allMessages);
     });
-  }, []);
+  }
 
   return (
     <div className="messages">

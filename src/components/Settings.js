@@ -3,12 +3,12 @@ import RequestStatus from "./RequestStatus";
 import { signUserOut } from "../firebase/signUserOut";
 import SetTheme from "./SetTheme";
 
-export default function Settings(props) {
+export default function Settings() {
   return (
     <div className="settings">
       <br />
-      <RequestName user={props.user} />
-      <RequestStatus user={props.user} />
+      <RequestName />
+      <RequestStatus />
       <SetTheme />
       <br />
       <button onClick={signUserOut}>Sign Out</button>

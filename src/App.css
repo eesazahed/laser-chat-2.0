@@ -82,7 +82,7 @@ li {
 
 .messages {
   font-size: smaller;
-  height: 90vh;
+  height: 80vh;
   width: 60vw;
   overflow: auto;
   display: flex;
@@ -117,9 +117,14 @@ li {
 }
 .settings input,
 .settings p,
-.registeration input,
 .registeration p {
   width: 50%;
+  margin: 1%;
+  padding: 1%;
+}
+
+.registeration input {
+  width: 300px;
   margin: 1%;
   padding: 1%;
 }

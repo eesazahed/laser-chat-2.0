@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import Messages from "./Messages";
 import Settings from "./Settings";
 import Textbox from "./Textbox";
@@ -6,17 +5,21 @@ import { SERVERNAME } from "../firebase/config";
 import Members from "./Members";
 import Swal from "sweetalert2";
 
+import { useAuthListener } from "../firebase/useAuthListener";
+
 import { db } from "../firebase/config";
 import { doc, addDoc, collection, updateDoc, getDoc } from "firebase/firestore";
 
-export default function Homepage(props) {
+export default function Homepage() {
+  const current = useAuthListener();
+
   document.title = SERVERNAME;
 
-  useEffect(() => {
-    const ifNewUser = async () => {
-      const docSnap = await getDoc(doc(db, "users", props.user));
+  if (current.user) {
+    (async function () {
+      const docSnap = await getDoc(doc(db, "users", current.user));
 
-      if (docSnap.data().name === "New User") {
+      if (!docSnap.data().changedName) {
         const { value: name } = await Swal.fire({
           title: "Enter your name please",
           input: "text",
@@ -32,20 +35,20 @@ export default function Homepage(props) {
           },
         });
         if (name) {
-          await updateDoc(doc(db, "users", props.user), {
+          await updateDoc(doc(db, "users", current.user), {
             name: name,
+            changedName: true,
           });
           addDoc(collection(db, "messages"), {
             content: `${name} has joined the chat.`,
             timestamp: new Date().getTime(),
             sender: name,
-            senderID: props.user,
+            senderID: current.user,
           });
         }
       }
-    };
-    ifNewUser();
-  }, []);
+    })();
+  }
 
   return (
     <div className="homepage">
@@ -53,15 +56,15 @@ export default function Homepage(props) {
         <h1>{SERVERNAME}</h1>
         <details>
           <summary>Settings</summary>
-          <Settings user={props.user} />
+          <Settings />
         </details>
       </aside>
       <main>
-        <Messages user={props.user} />
-        <Textbox user={props.user} />
+        <Messages />
+        <Textbox />
       </main>
       <aside>
-        <Members user={props.user} />
+        <Members />
       </aside>
     </div>
   );

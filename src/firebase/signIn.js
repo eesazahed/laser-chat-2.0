@@ -14,6 +14,7 @@ export const signIn = async () => {
             status: "Hello",
             email: currentEmail,
             id: result.user.uid,
+            changedName: false,
           });
         }
         localStorage.removeItem("emailForSignIn");

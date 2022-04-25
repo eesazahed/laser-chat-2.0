@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import Homepage from "./components/Homepage";
 import Register from "./components/Register";
 import { useAuthListener } from "./firebase/useAuthListener";
@@ -10,9 +9,7 @@ function App() {
 
   userTheme();
   return (
-    <div className="App">
-      {current.user ? <Homepage user={current.user} /> : <Register />}
-    </div>
+    <div className="App">{current.user ? <Homepage /> : <Register />}</div>
   );
 }
 

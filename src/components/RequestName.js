@@ -2,13 +2,17 @@ import { useState } from "react";
 import { db } from "../firebase/config";
 import { doc, updateDoc } from "firebase/firestore";
 
-export default function RequestName(props) {
+import { useAuthListener } from "../firebase/useAuthListener";
+
+export default function RequestName() {
+  const current = useAuthListener();
+
   const [name, setName] = useState("");
   const [error, setError] = useState("");
 
   const setUsername = async () => {
     if (name.length >= 3 && name.length <= 15) {
-      await updateDoc(doc(db, "users", props.user), {
+      await updateDoc(doc(db, "users", current.user), {
         name: name,
       });
       setName("");
