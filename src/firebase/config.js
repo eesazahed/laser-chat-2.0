@@ -3,7 +3,7 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 // Name your server
-export const SERVERNAME = "Laser Chat v2.0";
+export const SERVERNAME = "Laser Chat v2.0.1";
 //
 
 const firebaseConfig = {

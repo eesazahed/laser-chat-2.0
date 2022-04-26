@@ -33,6 +33,10 @@ export default function Messages() {
 
   return (
     <div className="messages">
+      <span id="newest-feed"></span>
+      <a id="down-button" href="#newest-feed">
+        <i className="fa fa-arrow-down"></i>
+      </a>
       {messages
         ? messages.map((message) => (
             <div

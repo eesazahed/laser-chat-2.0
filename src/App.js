@@ -8,6 +8,7 @@ function App() {
   const current = useAuthListener();
 
   userTheme();
+
   return (
     <div className="App">{current.user ? <Homepage /> : <Register />}</div>
   );

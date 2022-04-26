@@ -1,7 +1,19 @@
 body {
   font-family: sans-serif;
-  height: 100vh;
   padding: 0%;
+  scroll-behavior: smooth;
+}
+
+/* Messages */
+
+.messages {
+  font-size: smaller;
+  height: 80vh;
+  width: 60vw;
+  overflow: auto;
+  display: flex;
+  flex-direction: column-reverse;
+  scroll-behavior: smooth;
 }
 
 .msg {
@@ -52,6 +64,19 @@ body {
   text-align: right;
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+.messages::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.messages {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Layout */
+
 .homepage {
   display: flex;
   padding: 0%;
@@ -80,20 +105,16 @@ li {
   margin-bottom: 20px;
 }
 
-.messages {
-  font-size: smaller;
-  height: 80vh;
-  width: 60vw;
-  overflow: auto;
-  display: flex;
-  flex-direction: column-reverse;
-  scroll-behavior: smooth;
-}
-
 .members {
   height: 90vh;
   overflow: auto;
 }
+
+.you {
+  color: limegreen;
+}
+
+/* textbox */
 
 .textbox {
   width: 100%;
@@ -106,6 +127,8 @@ li {
   padding: 2%;
   border-radius: 20px;
 }
+
+/* registeration */
 
 .registeration {
   width: 100%;
@@ -137,6 +160,8 @@ li {
   width: 65%;
 }
 
+/* settings */
+
 .set {
   background-color: red;
 }
@@ -145,6 +170,7 @@ li {
   display: flex;
   justify-content: center;
 }
+
 .settings button,
 .settings input {
   margin: 2%;
@@ -159,11 +185,19 @@ li {
   justify-content: center;
 }
 
-.you {
-  color: green;
-}
+/* down button */
 
 button:hover {
   opacity: 0.8;
   transition: 0.25s;
+}
+
+#down-button {
+  position: absolute;
+  right: 14vw;
+  z-index: 99;
+}
+
+#down-button i {
+  font-size: 2rem;
 }
