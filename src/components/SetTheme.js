@@ -237,7 +237,7 @@ const appel = () => {
 
   $(".sentByYou span").css({ background: "#1888FF" });
   $(".sentByOther span").css({ background: "#f0ecec", color: "black" });
-  $("#down-button").css({ color: "grey" });
+  $("#down-button").css({ color: "white" });
 
   $("select").css({ background: "white" });
 
