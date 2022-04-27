@@ -2,8 +2,8 @@ import $ from "jquery";
 
 const lightmode = () => {
   $("body, .homepage").css({ background: "whitesmoke" });
-  $("body, input, button").css({ color: "black" });
-  $("body, input, button").css({ fontFamily: "sans-serif" });
+  $("body, input, button, select").css({ color: "black" });
+  $("body, input, button, select").css({ fontFamily: "sans-serif" });
   $(".messages").css({ background: "white" });
 
   $("input").css({
@@ -20,13 +20,15 @@ const lightmode = () => {
   $(".sentByOther span").css({ background: "limegreen" });
   $("#down-button").css({ color: "grey" });
 
+  $("select").css({ background: "white" });
+
   localStorage.setItem("theme", 1);
 };
 
 const darkmode = () => {
   $("body, .homepage").css({ background: "#2E2E2E" });
-  $("body, input, button").css({ color: "white" });
-  $("body, input, button").css({ fontFamily: "sans-serif" });
+  $("body, input, button, select").css({ color: "white" });
+  $("body, input, button, select").css({ fontFamily: "sans-serif" });
   $(".messages").css({ background: "#323232" });
 
   $("input").css({
@@ -43,13 +45,15 @@ const darkmode = () => {
   $(".sentByOther span").css({ background: "green" });
   $("#down-button").css({ color: "grey" });
 
+  $("select").css({ background: "#323232" });
+
   localStorage.setItem("theme", 2);
 };
 
 const terminal = () => {
   $("body, .homepage").css({ background: "black" });
-  $("body, input, button").css({ color: "white" });
-  $("body, input, button").css({ fontFamily: "monospace" });
+  $("body, input, button, select").css({ color: "white" });
+  $("body, input, button, select").css({ fontFamily: "monospace" });
   $(".messages").css({ background: "black" });
 
   $("input").css({
@@ -65,6 +69,8 @@ const terminal = () => {
   $(".sentByYou span, .sentByOther span").css({ background: "black" });
   $("#down-button").css({ color: "grey" });
 
+  $("select").css({ background: "black" });
+
   localStorage.setItem("theme", 3);
 };
 
@@ -74,9 +80,9 @@ const oldweb = () => {
     background: "url(https://wallpaperaccess.com/full/698524.jpg)",
     backgroundRepeat: "no-repeat",
   });
-  $("body, input, button").css({ color: "white" });
-  $("body, input, button").css({ fontFamily: "serif" });
-  $(".messages").css({ background: "black", opacity: 0.9 });
+  $("body, input, button, select").css({ color: "white" });
+  $("body, input, button, select").css({ fontFamily: "serif" });
+  $(".messages").css({ background: "black", opacity: 0.8 });
 
   $("input").css({
     border: "none",
@@ -92,13 +98,15 @@ const oldweb = () => {
   $(".sentByOther span").css({ background: "green" });
   $("#down-button").css({ color: "grey" });
 
+  $("select").css({ background: "black" });
+
   localStorage.setItem("theme", 4);
 };
 
 const colourful = () => {
   $("body, .homepage").css({ background: "skyblue" });
-  $("body, input, button").css({ color: "black" });
-  $("body, input, button").css({ fontFamily: "Futura, sans-serif" });
+  $("body, input, button, select").css({ color: "black" });
+  $("body, input, button, select").css({ fontFamily: "Futura, sans-serif" });
   $(".messages").css({ background: "lightblue" });
 
   $("input").css({
@@ -115,6 +123,8 @@ const colourful = () => {
   $(".sentByOther span").css({ background: "limegreen" });
   $("#down-button").css({ color: "grey" });
 
+  $("select").css({ background: "lightblue" });
+
   localStorage.setItem("theme", 5);
 };
 
@@ -124,8 +134,8 @@ const city = () => {
     background: "url(https://wallpaperaccess.com/full/399993.jpg)",
     backgroundRepeat: "no-repeat",
   });
-  $("body, input, button").css({ color: "white" });
-  $("body, input, button").css({ fontFamily: "sans-serif" });
+  $("body, input, button, select").css({ color: "white" });
+  $("body, input, button, select").css({ fontFamily: "sans-serif" });
   $(".messages").css({ background: "white" });
 
   $("input").css({
@@ -143,13 +153,15 @@ const city = () => {
   $(".sentByOther span").css({ background: "limegreen" });
   $("#down-button").css({ color: "white" });
 
+  $("select").css({ background: "white", color: "black" });
+
   localStorage.setItem("theme", 6);
 };
 
 const gradientlight = () => {
   $("body, .homepage").css({ background: "whitesmoke" });
-  $("body, input, button").css({ color: "black" });
-  $("body, input, button").css({ fontFamily: "sans-serif" });
+  $("body, input, button, select").css({ color: "black" });
+  $("body, input, button, select").css({ fontFamily: "sans-serif" });
   $(".messages").css({ background: "white" });
 
   $("input").css({
@@ -168,13 +180,15 @@ const gradientlight = () => {
   });
   $("#down-button").css({ color: "grey" });
 
+  $("select").css({ background: "white" });
+
   localStorage.setItem("theme", 7);
 };
 
 const gradientdark = () => {
   $("body, .homepage").css({ background: "#2E2E2E" });
-  $("body, input, button").css({ color: "white" });
-  $("body, input, button").css({ fontFamily: "sans-serif" });
+  $("body, input, button, select").css({ color: "white" });
+  $("body, input, button, select").css({ fontFamily: "sans-serif" });
   $(".messages").css({ background: "#323232" });
 
   $("input").css({
@@ -193,15 +207,22 @@ const gradientdark = () => {
   });
   $("#down-button").css({ color: "grey" });
 
+  $("select").css({ background: "#323232" });
+
   localStorage.setItem("theme", 8);
 };
 
 const appel = () => {
-  $("body, .homepage").css({ background: "white" });
-  $("body, input, button").css({ color: "black" });
-  $("body, input, button").css({
+  $("body").css({
+    background:
+      "url(https://media.idownloadblog.com/wp-content/uploads/2021/10/macOS-Monterey-Apple-Stock-Wallpaper-still-1-1200x1200.jpg)",
+    backgroundSize: "cover",
+  });
+  $("body, input, button, select").css({ color: "black" });
+  $("body, input, button, select").css({
     fontFamily: "BlinkMacSystemFont, sans-serif",
   });
+  $(".homepage").css({ background: "transparent" });
   $(".messages").css({ background: "white" });
 
   $("input").css({
@@ -218,21 +239,29 @@ const appel = () => {
   $(".sentByOther span").css({ background: "#f0ecec", color: "black" });
   $("#down-button").css({ color: "grey" });
 
+  $("select").css({ background: "white" });
+
   localStorage.setItem("theme", 9);
 };
 
 export default function SetTheme() {
   return (
     <div className="settheme">
-      <button onClick={lightmode}>Light mode</button>
-      <button onClick={gradientlight}>Light gradient</button>
-      <button onClick={darkmode}>Dark mode</button>
-      <button onClick={gradientdark}>Dark gradient</button>
-      <button onClick={terminal}>Terminal</button>
-      <button onClick={oldweb}>90's web</button>
-      <button onClick={colourful}>Colourful</button>
-      <button onClick={city}>City</button>
-      <button onClick={appel}>Appel</button>
+      <p>Set theme:</p>
+      <select onChange={(e) => localStorage.setItem("theme", e.target.value)}>
+        <option selected disabled>
+          -- Select theme --
+        </option>
+        <option value="1">Light mode</option>
+        <option value="7">Light gradient</option>
+        <option value="2">Dark mode</option>
+        <option value="8">Dark gradient</option>
+        <option value="3">Terminal</option>
+        <option value="4">90's web</option>
+        <option value="5">Colourful</option>
+        <option value="6">City</option>
+        <option value="9">Appel</option>
+      </select>
     </div>
   );
 }
@@ -242,7 +271,9 @@ export const userTheme = async () => {
   if (usersTheme === 1) lightmode();
   if (usersTheme === 2) darkmode();
   if (usersTheme === 3) terminal();
-  if (usersTheme === 4) oldweb();
+  if (usersTheme === 4) {
+    oldweb();
+  } else $(".messages").css({ opacity: 1 });
   if (usersTheme === 5) colourful();
   if (usersTheme === 6) city();
   if (usersTheme === 7) gradientlight();

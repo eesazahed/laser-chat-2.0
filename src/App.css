@@ -162,20 +162,23 @@ li {
 
 /* settings */
 
-.set {
-  background-color: red;
-}
-
 .request {
   display: flex;
   justify-content: center;
 }
 
 .settings button,
-.settings input {
+.settings input,
+.settings select {
   margin: 2%;
   padding: 4%;
   border-radius: 10px;
+}
+
+button,
+input,
+select {
+  border: none;
 }
 
 .settings,
