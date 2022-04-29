@@ -64,7 +64,7 @@ body {
 }
 
 .messages::-webkit-scrollbar {
-  width: 1em;
+  width: 0.7em;
 }
 
 .messages::-webkit-scrollbar-thumb {
@@ -198,5 +198,5 @@ button:hover {
 }
 
 #down-button i {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
