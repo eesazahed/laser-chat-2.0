@@ -13,7 +13,6 @@ body {
   overflow: auto;
   display: flex;
   flex-direction: column-reverse;
-  scroll-behavior: smooth;
 }
 
 .msg {
@@ -64,15 +63,12 @@ body {
   text-align: right;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
 .messages::-webkit-scrollbar {
-  display: none;
+  width: 1em;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
-.messages {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+.messages::-webkit-scrollbar-thumb {
+  background: grey;
 }
 
 /* Layout */
