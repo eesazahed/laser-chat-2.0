@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { SERVERNAME } from "../firebase/config";
 import { handleSubmit } from "../firebase/register";
 import { signIn } from "../firebase/signIn";
 
@@ -37,7 +38,7 @@ export default function Register() {
   } else {
     return (
       <div className="registeration">
-        <h1>Welcome</h1>
+        <h1>Welcome to {SERVERNAME}</h1>
         <input
           type="email"
           value={email}
