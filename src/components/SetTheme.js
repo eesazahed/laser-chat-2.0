@@ -128,36 +128,6 @@ const colourful = () => {
   localStorage.setItem("theme", 5);
 };
 
-const city = () => {
-  $("body, .homepage").css({ background: "black" });
-  $(".homepage").css({
-    background: "url(https://wallpaperaccess.com/full/399993.jpg)",
-    backgroundRepeat: "no-repeat",
-  });
-  $("body, input, button, select").css({ color: "white" });
-  $("body, input, button, select").css({ fontFamily: "sans-serif" });
-  $(".messages").css({ background: "white" });
-
-  $("input").css({
-    border: "none",
-    background: "white",
-    color: "black",
-  });
-  $("button").css({
-    border: "none",
-    background: "white",
-    color: "black",
-  });
-
-  $(".sentByYou span").css({ background: "deepskyblue" });
-  $(".sentByOther span").css({ background: "limegreen" });
-  $("#down-button").css({ color: "white" });
-
-  $("select").css({ background: "white", color: "black" });
-
-  localStorage.setItem("theme", 6);
-};
-
 const gradientlight = () => {
   $("body, .homepage").css({ background: "whitesmoke" });
   $("body, input, button, select").css({ color: "black" });
@@ -182,7 +152,7 @@ const gradientlight = () => {
 
   $("select").css({ background: "white" });
 
-  localStorage.setItem("theme", 7);
+  localStorage.setItem("theme", 6);
 };
 
 const gradientdark = () => {
@@ -209,7 +179,7 @@ const gradientdark = () => {
 
   $("select").css({ background: "#323232" });
 
-  localStorage.setItem("theme", 8);
+  localStorage.setItem("theme", 7);
 };
 
 const appel = () => {
@@ -241,7 +211,7 @@ const appel = () => {
 
   $("select").css({ background: "white" });
 
-  localStorage.setItem("theme", 9);
+  localStorage.setItem("theme", 8);
 };
 
 export default function SetTheme() {
@@ -253,14 +223,13 @@ export default function SetTheme() {
           -- Select theme --
         </option>
         <option value="1">Light mode</option>
-        <option value="7">Light gradient</option>
+        <option value="6">Light gradient</option>
         <option value="2">Dark mode</option>
-        <option value="8">Dark gradient</option>
+        <option value="7">Dark gradient</option>
         <option value="3">Terminal</option>
         <option value="4">90's web</option>
         <option value="5">Colourful</option>
-        <option value="6">City</option>
-        <option value="9">Appel</option>
+        <option value="8">Appel</option>
       </select>
     </div>
   );
@@ -275,10 +244,9 @@ export const userTheme = async () => {
     oldweb();
   } else $(".messages").css({ opacity: 1 });
   if (usersTheme === 5) colourful();
-  if (usersTheme === 6) city();
-  if (usersTheme === 7) gradientlight();
-  if (usersTheme === 8) gradientdark();
-  if (usersTheme === 9) {
+  if (usersTheme === 6) gradientlight();
+  if (usersTheme === 7) gradientdark();
+  if (usersTheme === 8) {
     appel();
   } else $(".sentByOther span").css({ color: "white" });
 };
