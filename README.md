@@ -1,6 +1,7 @@
 # Laser Chat 2.0
 
-![preview](https://user-images.githubusercontent.com/97064249/165171261-9f1019cb-9b6d-4816-aa53-f1b43da8c086.png)
+![preview1](https://user-images.githubusercontent.com/97064249/165634136-f3b4b5b7-f149-4510-9794-8ba76b4c09fe.png)
+![preview2](https://user-images.githubusercontent.com/97064249/165634139-60734209-bf49-4a57-8f1e-84195c7c09cc.png)
 
 
 This is an open chat web app that I made using Google Firebase.
