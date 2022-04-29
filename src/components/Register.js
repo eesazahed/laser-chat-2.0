@@ -1,26 +1,26 @@
 import { useState } from "react";
-import { SERVERNAME } from "../firebase/config";
-import { handleSubmit } from "../firebase/register";
-import { signIn } from "../firebase/signIn";
+import { SERVERNAME, auth, db } from "../firebase/config";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { doc, setDoc, getDoc } from "firebase/firestore";
 
 export default function Register() {
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(true);
 
-  var re =
-    /^[a-z][a-zA-Z0-9_.]*(\.[a-zA-Z][a-zA-Z0-9_.]*)?@[a-z][a-zA-Z-0-9]*\.[a-z]+(\.[a-z]+)?$/;
-
   const register = () => {
-    if (re.test(email)) {
-      handleSubmit(email);
-      setMessage(
-        `An email has been sent to ${email}. Please go to your inbox to verify it.`
-      );
-    }
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider).then(async (result) => {
+      const docSnap = await getDoc(doc(db, "users", result.user.uid));
+      if (!docSnap.exists()) {
+        setDoc(doc(db, "users", result.user.uid), {
+          name: "New User",
+          status: "Hello",
+          id: result.user.uid,
+          changedName: false,
+        });
+        console.log(result);
+      }
+    });
   };
-
-  signIn();
 
   setInterval(() => setLoading(false), 3000);
 
@@ -39,15 +39,7 @@ export default function Register() {
     return (
       <div className="registeration">
         <h1>Welcome to {SERVERNAME}</h1>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="email"
-        />
-        <button onClick={register}>Register</button>
-        <br />
-        {message}
+        <button onClick={register}>Sign in with your Google Account.</button>
       </div>
     );
   }
