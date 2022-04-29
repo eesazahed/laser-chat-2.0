@@ -22,20 +22,17 @@ For your database rules, use the following:
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-  
-		match /users/{id} {
+    match /users/{id} {
       allow read, create, update: if isUserAuthenticated();
     }
-    
     match /messages/{id} {
       allow read, create : if isUserAuthenticated();
     }
-  
-    
-  	function isUserAuthenticated() {
+    function isUserAuthenticated() {
       return request.auth.uid != null; 
     }
   }
+}
 ```
 
 # If you come across any errors, please let me know immediately. You can email me at ESZHD1@gmail.com
