@@ -29,13 +29,11 @@ export default function Members() {
       <h1>Members</h1>
       <ul>
         {users
-          ? users
-              .map((user) => (
-                <li key={user[0]} className={user[3] ? "you" : ""}>
-                  {user[1]} - {user[2]} {user[3] ? " (You) " : ""}
-                </li>
-              ))
-              .reverse()
+          ? users.map((user) => (
+              <li key={user[0]} className={user[3] ? "you" : ""}>
+                {user[1]} - {user[2]} {user[3] ? " (You) " : ""}
+              </li>
+            ))
           : ""}
       </ul>
     </div>
