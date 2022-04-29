@@ -1,3 +1,7 @@
+/*
+Thanks to Karl Hadwen for this (https://github.com/karlhadwen/instagram/blob/master/src/hooks/use-auth-listener.js)
+*/
+
 import { db, auth } from "./config";
 import { doc, onSnapshot } from "firebase/firestore";
 import { useState, useEffect } from "react";
