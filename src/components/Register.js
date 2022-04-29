@@ -17,7 +17,6 @@ export default function Register() {
           id: result.user.uid,
           changedName: false,
         });
-        console.log(result);
       }
     });
   };
