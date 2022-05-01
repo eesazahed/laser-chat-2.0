@@ -48,7 +48,7 @@ export default function Messages() {
                 <div className="msg-sender">{message.sender}</div>
                 <div className="msg-content">
                   <span>{message.content}</span>
-                </div>{" "}
+                </div>
               </div>
               <div className="msg-right">
                 {new Date(message.timestamp).toLocaleString()}
