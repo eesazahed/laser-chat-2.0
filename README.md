@@ -7,7 +7,7 @@ This is an open chat web app that I made using Google Firebase.
 
 # Hosting a server
 
-To host your own chat server, first open the terminal and type in `git clone https://github.com/EesaZahed/laser-chat.git`. Next, type `cd laser-chat` and `npm i react` in the terminal.
+To host your own chat server, first open the terminal and type in `git clone https://github.com/EesaZahed/laser-chat.git`. Next, type `cd laser-chat` and `npm i` in the terminal.
 
 Next, create a Google Firebase web project at https://console.firebase.google.com/, and enable a firestore database, and also add a method for user authentication with an the users Google Account. Once you create your project, go to your project settings, and copy the `firebaseConfig` object, and paste it in `src/firebase/config.js`.
 
